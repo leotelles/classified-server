@@ -2,7 +2,11 @@ import Category from '../models/Category';
 
 class CategoryController {
   async index(req, res) {
-    res.json({ ok: true });
+    const categories = await Category.findAll({
+      where: { level: 0 },
+    });
+
+    return res.json(categories);
   }
 }
 
