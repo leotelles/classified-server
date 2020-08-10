@@ -1,13 +1,13 @@
 import Sequelize from 'sequelize';
 
 // importtar todos os models
-// import User from '../app/models/User';
+import Category from '../app/models/Category';
 
 // importar as configurações
 import databaseConfig from '../config/database';
 
 // array com todos os models importados
-const models = [];
+const models = [Category];
 
 class Database {
   constructor() {
@@ -18,7 +18,11 @@ class Database {
     this.connection = new Sequelize(databaseConfig);
 
     // chamar o método init de cada model
-    models.map((model) => model.init(this.connection));
+    models
+      .map((model) => model.init(this.connection))
+      .map(
+        (model) => model.associate && model.associate(this.connection.models)
+      );
   }
 }
 
