@@ -11,5 +11,6 @@ routes.post('/categories', CategoryController.store);
 
 routes.get('/adverts/:category', AdvertsController.index);
 routes.post('/adverts', AdvertsController.store);
+routes.get('/ad/:id', AdvertsController.detail);
 
 export default routes;
