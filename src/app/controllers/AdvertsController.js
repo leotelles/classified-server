@@ -21,6 +21,12 @@ class AdvertsController {
     return res.json(ad);
   }
 
+  async allAdverts(req, res) {
+    const adverts = await Adverts.findAll();
+
+    return res.json(adverts);
+  }
+
   async store(req, res) {
     const {
       category,

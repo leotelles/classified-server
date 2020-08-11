@@ -19,6 +19,12 @@ class CategoryController {
     return res.json(subcategories);
   }
 
+  async allCategories(req, res) {
+    const categories = await Category.findAll();
+
+    return res.json(categories);
+  }
+
   async store(req, res) {
     const { title, level, mother } = await Category.create(req.body);
 
