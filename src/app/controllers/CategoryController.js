@@ -12,13 +12,20 @@ class CategoryController {
   async subCategory(req, res) {
     const { id } = req.params;
 
-    // const category = await Category.findByPk(id);
-
     const subcategories = await Category.findAll({
       where: { mother: id },
     });
 
     return res.json(subcategories);
+  }
+
+  async store(req, res) {
+    const { title, level } = await Category.create(req.body);
+
+    return res.json({
+      title,
+      level,
+    });
   }
 }
 
