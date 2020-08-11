@@ -2,12 +2,13 @@ import Sequelize from 'sequelize';
 
 // importtar todos os models
 import Category from '../app/models/Category';
+import Adverts from '../app/models/Adverts';
 
 // importar as configurações
 import databaseConfig from '../config/database';
 
 // array com todos os models importados
-const models = [Category];
+const models = [Category, Adverts];
 
 class Database {
   constructor() {
