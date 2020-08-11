@@ -6,7 +6,7 @@ class Adverts extends Model {
       {
         category: Sequelize.INTEGER,
         title: Sequelize.STRING,
-        generalInfo: Sequelize.STRING,
+        general_info: Sequelize.STRING,
         description: Sequelize.STRING,
         price: Sequelize.DECIMAL(10, 2),
         location: Sequelize.STRING,

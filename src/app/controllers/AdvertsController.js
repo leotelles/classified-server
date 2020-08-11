@@ -2,27 +2,35 @@ import Adverts from '../models/Adverts';
 
 class AdvertsController {
   async index(req, res) {
-    // const { id } = req.params;
+    const { category } = req.params;
 
-    // const adverts = await Adverts.findAll({
-    //   where: { category: id },
-    // });
+    const adverts = await Adverts.findAll({
+      where: { category },
+    });
 
-    // return res.json(adverts);
-
-    return res.json({ ok: true });
+    return res.json(adverts);
   }
 
   async store(req, res) {
-    // const { title, level, mother } = await Adverts.create(req.body);
+    const {
+      category,
+      title,
+      general_info,
+      description,
+      price,
+      location,
+      condition,
+    } = await Adverts.create(req.body);
 
-    // return res.json({
-    //   title,
-    //   level,
-    //   mother,
-    // });
-
-    return res.json({ ok: true });
+    return res.json({
+      category,
+      title,
+      general_info,
+      description,
+      price,
+      location,
+      condition,
+    });
   }
 }
 

@@ -9,7 +9,7 @@ routes.get('/categories', CategoryController.mainCategory);
 routes.get('/categories/:id', CategoryController.subCategory);
 routes.post('/categories', CategoryController.store);
 
-routes.get('/adverts/:id', AdvertsController.index);
+routes.get('/adverts/:category', AdvertsController.index);
 routes.post('/adverts', AdvertsController.store);
 
 export default routes;
