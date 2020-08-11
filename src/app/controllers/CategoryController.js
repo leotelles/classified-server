@@ -20,11 +20,12 @@ class CategoryController {
   }
 
   async store(req, res) {
-    const { title, level } = await Category.create(req.body);
+    const { title, level, mother } = await Category.create(req.body);
 
     return res.json({
       title,
       level,
+      mother,
     });
   }
 }
