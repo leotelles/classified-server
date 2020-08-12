@@ -48,6 +48,20 @@ class AdvertsController {
       condition,
     });
   }
+
+  async delete(req, res) {
+    const { id } = req.params;
+
+    const adverts = await Adverts.findByPk(id);
+
+    if (!adverts) {
+      return res.status(400).json({ error: 'Ad not found' });
+    }
+
+    await adverts.destroy();
+
+    return res.json(adverts);
+  }
 }
 
 export default new AdvertsController();

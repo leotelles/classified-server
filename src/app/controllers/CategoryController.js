@@ -34,6 +34,20 @@ class CategoryController {
       mother,
     });
   }
+
+  async delete(req, res) {
+    const { id } = req.params;
+
+    const category = await Category.findByPk(id);
+
+    if (!category) {
+      return res.status(400).json({ error: 'Category not found' });
+    }
+
+    await category.destroy();
+
+    return res.json(category);
+  }
 }
 
 export default new CategoryController();
